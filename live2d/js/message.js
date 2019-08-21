@@ -1,4 +1,7 @@
-var home_Path = document.location.protocol +'//' + window.document.location.hostname +'/';
+//本地模式
+//var home_Path = document.location.protocol +'//' + window.document.location.hostname +'/';
+//cdn模式
+var home_Path = document.location.protocol +'//' + 'cdn.jsdelivr.net/gh/MuenYu/open_cdn' +'/';
 
 var userAgent = window.navigator.userAgent.toLowerCase();
 console.log(userAgent);
