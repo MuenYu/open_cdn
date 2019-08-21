@@ -1,7 +1,4 @@
-//本地模式
-//var home_Path = document.location.protocol +'//' + window.document.location.hostname +'/';
-//cdn模式
-var home_Path = document.location.protocol +'//' + 'cdn.jsdelivr.net/gh/MuenYu/open_cdn' +'/';
+var home_Path = document.location.protocol +'//' + window.document.location.hostname +'/';
 
 var userAgent = window.navigator.userAgent.toLowerCase();
 console.log(userAgent);
@@ -63,7 +60,7 @@ if(!norunFlag){
 		function initTips(){
 			$.ajax({
 				cache: true,
-				url: home_Path+message_Path+'message.json',
+				url: message_Path+'message.json',
 				dataType: "json",
 				success: function (result){
 					$.each(result.mouseover, function (index, tips){
@@ -262,7 +259,7 @@ if(!norunFlag){
 				fukuType = 0;
 			}
 			localStorage.setItem("live2dfuku" , fukuType);
-			loadlive2d("live2d", home_Path+message_Path+LoadingModelJson[fukuType]);
+			loadlive2d("live2d", message_Path+LoadingModelJson[fukuType]);
 		});
 		if(talkAPI!==""){
 			$('#showInfoBtn').on('click',function(){
@@ -508,7 +505,7 @@ if(!norunFlag){
 						},1300);
 					}
 					setTimeout(function(){
-						loadlive2d("live2d", home_Path+message_Path+LoadingModelJson[fukuType]);
+						loadlive2d("live2d", message_Path+LoadingModelJson[fukuType]);
 					},1000);
 					initLive2d ();
 					images = null;
