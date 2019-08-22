@@ -240,7 +240,7 @@ if(!norunFlag){
 				var duType = $('#duType').val();
 				var duArr = duType.split(",");
 				var dataType = duArr[Math.floor(Math.random() * duArr.length)];
-
+	
 				$('#youduButton').addClass('doudong');
 				$('#youduButton').attr('data-type',dataType);
 				$('body').addClass(dataType);
@@ -301,19 +301,15 @@ if(!norunFlag){
 				}
 				showMessage('思考中~', 0);
 				$.ajax({
-					type: 'POST',
-					url: talkAPI,
-					data: {
-						"info":info_,
-						"userid":userid_
-					},
+					type: 'GET',
+					url: talkAPI+info_,
 					success: function(res) {
-						if(res.code !== 100000){
+						if(res.message !== "success"){
 							talkValTimer();
 							showMessage('似乎有什么错误，请和站长联系！',0);
 						}else{
 							talkValTimer();
-							showMessage(res.text,0);
+							showMessage(res.data.info.text,0);
 						}
 						console.log(res);
 						$('#AIuserText').val("");
